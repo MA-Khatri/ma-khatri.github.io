@@ -118,7 +118,7 @@ main {
 .project {
     padding: 1.25rem;
     background-color: aliceblue;
-    display: flex;
+    /* display: flex; */
     flex-wrap: wrap;
 }
 
