@@ -6,6 +6,16 @@
     <link rel="icon" href="../images/hand-wave.png">
     <meta charset="UTF-8">
     <title>MA Khatri - Resume</title>
+
+    <script>
+        function resize() {
+            document.querySelector("#pdf").style.height = (window.innerHeight - 150) + "px";
+            console.log(window.innerHeight)
+        }
+
+        window.onresize = resize;
+        window.onload = resize;
+    </script>
 </head>
 
 <body>
@@ -31,10 +41,9 @@
     <main>
         <div class="break"></div>
         <hr>
-        <!-- <div class="break"></div> -->
-        <iframe src="../extra/MahebubAalamKhatri_CVDraft.pdf" width="100%" height="800px">
-        </iframe>
-        <!-- <div class="break"></div> -->
+        <div id="pdf" style="height: 800px;">
+            <iframe src="../extra/MahebubAalamKhatri_CVDraft.pdf" width="100%" height="100%"></iframe>
+        </div>
         <hr>
         <div class="break"></div>
     </main>
@@ -51,5 +60,6 @@
         </p>
     </footer>
 </body>
+
 
 </html>
