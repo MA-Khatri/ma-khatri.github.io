@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Mahebub Aalam Khatri Project C</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body onload="main()" onresize="drawResize()">
+        <canvas id="webgl" width="600" height="600">
+            Please use a browser that supports "canvas"
+        </canvas>
+
+        <br>
+
+        <button onclick="playPause()">Play/Pause Animation</button>
+
+        <label for="GPgrid">Ground Plane Grid Style:</label>
+        <select name="GPgrid" id="GPgrid">
+            <option value="simple">Simple Grid</option>
+            <option value="triangular_mesh">Triangular Mesh Grid</option>
+        </select>
+
+        <label for="shadingStyle">Lighting and Shading Style:</label>
+        <select name="shadingStyle" id="shadingStyle">
+            <option value="BPgouraud">Blinn-Phong Lighting + Gouraud shading</option>
+            <option value="BPphong">Blinn-Phong Lighting + Phong shading</option>
+            <option value="Pgouraud">Phong Lighting + Gouraud shading</option>
+            <option value="Pphong">Phong Lighting + Phong shading</option>
+        </select>
+
+        <label for="materialSelect">Test Objects Material:</label>
+        <select name="materialSelect" id="materialSelect">
+            <option value="1">Red Plastic</option>
+            <option value="2">Green Plastic</option>
+            <option value="3">Blue Plastic</option>
+            <option value="4">Black Plastic</option>
+            <option value="5">Black Rubber</option>
+            <option value="6">Brass</option>
+            <option value="7">Dull Bronze</option>
+            <option value="8">Shiny Bronze</option>
+            <option value="9">Chrome</option>
+            <option value="10">Dull Copper</option>
+            <option value="11">Shiny Copper</option>
+            <option value="12">Dull Gold</option>
+            <option value="13">Shiny Gold</option>
+            <option value="14">Pewter</option>
+            <option value="15">Dull Silver</option>
+            <option value="16">Shiny Silver</option>
+            <option value="17">Emerald</option>
+            <option value="18">Jade</option>
+            <option value="19">Obsidian</option>
+            <option value="20">Pearl</option>
+            <option value="21">Ruby</option>
+            <option value="22">Turquoise</option>
+            <option value="23">Default Red</option>
+        </select>
+
+        <br>
+        <br>
+
+        <div>
+            <input type="color" id="worldLightColor" name="worldLightColor"
+                value="#FFFFFF">
+            <label for="worldLightColor">Diffuse Light Color</label>
+            <br>
+            <input type="color" id="ambientLightColor" name="ambientLightColor"
+                value="#333333">
+            <label for="ambientLightColor">Ambient Light Color</label>
+            <br>
+            <input type="color" id="specularLightColor" name="specularLightColor"
+                value="#FFFFFF">
+            <label for="specularLightColor">Specular Light Color</label>
+        <div>
+
+        <div>
+            <input type="range" id="diffuseMultiplier" name="diffuseMultiplier"
+                    min="0" max="1" value="1" step="0.01">
+            Diffuse Multiplier: <span id="DIFFUSEMULTIPLIER"></span>
+            <br>
+            <input type="range" id="ambientMultiplier" name="ambientMultiplier"
+                    min="0" max="1" value="1" step="0.01">
+            Ambient Multiplier: <span id="AMBIENTMULTIPLIER"></span>
+            <br>
+            <input type="range" id="specularMultiplier" name="specularMultiplier"
+                    min="0" max="1" value="1" step="0.01">
+            Specular Multiplier: <span id="SPECULARMULTIPLIER"></span>
+        </div>
+
+        <div>
+            <input type="range" id="worldLightX" name="worldLightX"
+                   min="-50" max="50" value="30" step="0.1">
+            World Light X: <span id="LIGHTX"></span>
+            <br>
+            <input type="range" id="worldLightY" name="worldLightY"
+                   min="-50" max="50", value="0" step="0.1">
+            World Light Y: <span id="LIGHTY"></span>
+            <br>
+            <input type="range" id="worldLightZ" name="worldLightZ"
+                   min="-50" max="50" value="0" step="0.1">
+            World Light Z: <span id="LIGHTZ"></span>
+        </div>
+
+        <br>
+        <div>
+            <span id="InstructionsHeader">Instructions</span>
+            <li>Use WASD to move the camera forward/backward and strafe left/right.</li>
+            <li>Use SPACE/SHIFT to increase/decrease the camera's height along the z-axis.</li>
+            <li>Press "P" or click the button to play/pause animation. When paused, objects will stop moving but camera movement will still be possible.</li>
+            <li>Click the boxes next to each light type's "Color" to change their RGB values.</li>
+            <li>Change the multiplier applied to each of the different types of light by moving their corresponding "Multiplier" slider.</li>
+            <li>To turn off a particular type of light, set the corresponding "Multiplier" to 0.</li>
+            <li>Move the position of the world light using the "World Light X/Y/Z" sliders.</li>
+            <li>Test out different ground planes, lighting/shading styles, and materials using the dropdown menus above.</li>
+        </div>
+        
+
+        
+        
+        <!-- dependencies -->
+        <script src="lib/webgl-utils.js"></script>
+        <script src="lib/webgl-debug.js"></script>
+        <script src="lib/cuon-utils.js"></script>
+        <script src="lib/cuon-matrix-quat03.js"></script>
+            <!-- Eventually switch to this lib? -->
+            <!-- <script src="lib/gl-matrix.js"></script>  -->
+
+        <!-- project source code -->
+        <script src="lights.js"></script>
+        <script src="materials.js"></script>
+        <script src="utah.js"></script>
+        <script src="bunny.js"></script>
+        <script src="cylinder.js"></script>
+        <script src="shapes.js"></script>
+        <script src="VBObox0.js"></script>
+        <script src="VBObox1.js"></script>
+        <script src="VBObox2.js"></script>
+        <script src="main.js"></script>
+        <script src="controls.js"></script>
+    </body>
+</html>

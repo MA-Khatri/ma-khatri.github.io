@@ -1,0 +1,11 @@
+#InstructionsHeader{
+    font-size: 14pt;
+}
+
+#instructions{
+    font-size: 12pt;
+}
+
+body {
+  overflow-x: hidden;
+}
