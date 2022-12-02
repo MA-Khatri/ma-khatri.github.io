@@ -156,6 +156,16 @@ main {
     color: #2700c1;
 }
 
+.video {
+    float: left;
+    margin: 20px;
+}
+
+.embedContainer {
+    display: flex; 
+    justify-content:center;
+}
+
 footer {
     background-color: aquamarine;
     padding: 1rem 10% 1rem 10%;
